@@ -1,0 +1,9 @@
+{
+  "name": "mark-docsify",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "docsify": "docsify serve",
+    "pm2": "pm2 serve . 3000 --spa --name docs"
+  }
+}
