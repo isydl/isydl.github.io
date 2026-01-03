@@ -1,2 +1,12 @@
-- [主页](README.md)
+* [Bug 汇总](/bugs/summary.md)
+  * [Java](/bugs/java/java-bugs.md)
+- [fixkit_workbench](/)
+  - [Mybatis Auto-Fill Fields](/)
 
+- [Scenario dialogue](/)
+  - [Technical discussions](/guide1)
+  - [Communication with Product Managers](/)
+  - [Code Review](/)
+  - [System Architecture Design](/)
+  - [Interview](/)
+  - [Emergency response](/)
