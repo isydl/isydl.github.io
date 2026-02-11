@@ -1,7 +1,8 @@
 * [Bug 汇总](/bugs/summary.md)
   * [Java](/bugs/java/java-bugs.md)
-* [代码片段](/codes/summary.md)
-- [xxx-job](/projects/xxx-job/overview.md)
-  - [机制与流程](/projects/xxx-job/mech&flow.md)
-  - [随手记](/projects/xxx-job/notes.md)
+* [词汇汇总](/glossary/glossary.md)
+* [Foundation](/projects/Foundation/Overview.md)
+* [Spring boot](/projects/Spring%20boot/Overview.md)
+  * [启动与阶段](/projects/Spring%20boot/Startup%20&%20Phases.md)
+* [fixkit](/projects/fixkit/overview.md)
 
