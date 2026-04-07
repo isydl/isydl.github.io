@@ -1,3 +1,36 @@
+这个系统是脚手架项目，一方面是为了梳理各种基础设置系统的使用，另一方面是为了方便写作。写的有点琐碎，敬请谅解。
+
+## Spring initializr
+
+如图：
+![spring initializr](./images/spring%20initializr.png)
+
+导入idea后，如图：
+![idea init](./images/idea%20init.png)
+
+
+好，我们开始加入第一个模块内容。
+
+> 相关代码参考[spring-boot-init-template](https://github.com/AntonyCheng/spring-boot-init-template/tree/master) 风格
+---
+
+## 配置系统（Configuration System）
+
+脚手架里一定要有：
+
+* `application.yml` 分环境
+* 
+* `dev / test / prod` profile
+* 配置集中管理（可选）：
+
+  * Nacos
+  * Apollo
+* 敏感配置隔离（密码、key）
+
+👉 本质：**配置 ≠ 代码**
+
+---
+
 ## 1️⃣ 日志系统（Logging System）✅
 
 **这是我当时第一个提的**
@@ -14,21 +47,6 @@
 
 👉 脚手架价值：**你新项目不用再想日志怎么配**
 
----
-
-## 2️⃣ 配置系统（Configuration System）
-
-脚手架里一定要有：
-
-* `application.yml` 分环境
-* `dev / test / prod` profile
-* 配置集中管理（可选）：
-
-  * Nacos
-  * Apollo
-* 敏感配置隔离（密码、key）
-
-👉 本质：**配置 ≠ 代码**
 
 ---
 
