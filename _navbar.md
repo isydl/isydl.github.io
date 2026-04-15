@@ -1,3 +1,3 @@
-- [首页](README.md)
-* 快速跳转
-  * [关于我](ABOUTME.md)
+- [Home](README.md)
+
+* [About me](ABOUTME.md)
