@@ -1,5 +1,6 @@
 - [Bugs](/bugs/summary.md)
   - [Java](/bugs/java/java-bugs.md)
 - [Vocabulary](/glossary/glossary.md)
+  - [The Good Docs Project](/glossary/The%20Good%20Docs%20Project.md)
 - [Articles](/articles/overview.md)
   - [Test](/articles/Test.md)
