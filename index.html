@@ -22,14 +22,25 @@
 <body>
   <div id="app"></div>
   <script>
+    // i18n: detect language from URL hash
+    var isEn = /\/en\//.test(window.location.hash);
+    var isJa = /\/ja\//.test(window.location.hash);
+    var siteName = isJa ? '積歩成遠' : (isEn ? 'A Thousand Miles Hence' : '何以千里');
+    document.title = siteName;
+
     window.$docsify = {
-      name: 'A Thousand Miles Hence<span class="mg-badge">^_^</span>',
+      name: siteName + '<span class="mg-badge">^_^</span>',
       repo: 'https://github.com/isydl/isydl.github.io',
       coverpage: false,
       loadNavbar: true,
       loadSidebar: true,
       autoHeader: true,
       onlyCover: false,
+      fallbackLanguages: ['zh-cn'],
+      alias: {
+        '/README.md': '/zh-cn/README.md',
+        '/ABOUTME.md': '/zh-cn/ABOUTME.md'
+      },
       routerMode: 'hash',
       subMaxLevel: 1,
       //basePath: '',
@@ -42,9 +53,9 @@
       },
       search: 'auto',
       copyCode: {
-        buttonText : '点击复制',
-        errorText  : '错误',
-        successText: '复制成功'
+        buttonText : isJa ? 'コピー' : (isEn ? 'Copy' : '点击复制'),
+        errorText  : isJa ? 'エラー' : (isEn ? 'Error' : '错误'),
+        successText: isJa ? 'コピーしました' : (isEn ? 'Copied' : '复制成功')
       },
       footer: {
         copy: '<span>A Thousand Miles Hence &copy; 2026</span>',
@@ -55,7 +66,7 @@
       },
       vueComponents: {},// 可自定义
       timeUpdater: {
-        text: "<div align='right' width='100%' style='color:gray;font-size:16px;margin-top:10px;'>最后更新时间: {docsify-updated}</div>",
+        text: "<div align='right' width='100%' style='color:gray;font-size:16px;margin-top:10px;'>" + (isJa ? '最終更新' : (isEn ? 'Last updated' : '最后更新时间')) + ": {docsify-updated}</div>",
         formatUpdated: "{YYYY}-{MM}-{DD} {HH}:{mm}",
       },
       // note tip warning attention https://github.com/fzankl/docsify-plugin-flexible-alerts
@@ -170,6 +181,17 @@
       //   appId: "UN7Gtt9fVUR42BGx89Fk2ZoS-gzGzoHsz",
       //   appKey: "cxbfRBGvSS9wPBD4pGav3njE"
       // },
+      // root redirect: auto-navigate to Chinese homepage when no language is selected
+      plugins: [
+        function(hook) {
+          hook.init(function() {
+            var hash = window.location.hash;
+            if (hash === '' || hash === '#/' || hash === '#/README.md') {
+              window.location.hash = '#/zh-cn/';
+            }
+          });
+        }
+      ],
       markdown: {
         renderer: {
           code: function (code, lang) {
@@ -295,6 +317,111 @@
   <script src="//gcore.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
   <!-- Docsify v4 -->
   <script src="//gcore.jsdelivr.net/npm/docsify@4.13.0/lib/docsify.js"></script>
+  <!-- i18n language switcher (custom dropdown) -->
+  <script>
+  (function() {
+    var langs = [
+      { code: 'zh-cn', label: '\u4E2D\u6587',  flag: '\u{1F1E8}\u{1F1F3}' },
+      { code: 'en',    label: 'English',       flag: '\u{1F1FA}\u{1F1F8}' },
+      { code: 'ja',    label: '\u65E5\u672C\u8A9E', flag: '\u{1F1EF}\u{1F1F5}' }
+    ];
+
+    function getCurrentLang() {
+      var hash = location.hash;
+      for (var i = 0; i < langs.length; i++) {
+        if (hash.indexOf('/' + langs[i].code + '/') !== -1) return langs[i].code;
+      }
+      return 'zh-cn';
+    }
+
+    function getLangLabel(code) {
+      for (var i = 0; i < langs.length; i++) {
+        if (langs[i].code === code) return langs[i].flag + ' ' + langs[i].label;
+      }
+      return code;
+    }
+
+    var langSwitcherPlugin = function(hook) {
+      hook.doneEach(function() {
+        var navbar = document.querySelector('nav.app-nav');
+        if (!navbar) return;
+        if (navbar.querySelector('.lang-dropdown-wrap')) return;
+
+        // Remove all language-flag <li> items (:cn: / :us: / :jp:)
+        var items = navbar.querySelectorAll('ul > li');
+        items.forEach(function(li) {
+          var t = li.textContent;
+          if (/:cn:|:us:|:jp:/.test(t)) li.remove();
+        });
+
+        // Build custom dropdown
+        var current = getCurrentLang();
+        var wrap = document.createElement('li');
+        wrap.className = 'lang-dropdown-wrap';
+        wrap.style.cssText = 'position:relative;display:inline-block;';
+
+        var btn = document.createElement('button');
+        btn.className = 'lang-dropdown-btn';
+        btn.style.cssText =
+          'background:#fff;border:1px solid #ddd;border-radius:4px;' +
+          'padding:5px 24px 5px 10px;cursor:pointer;font-size:14px;' +
+          'color:#333;outline:none;white-space:nowrap;' +
+          'appearance:none;-webkit-appearance:none;';
+        btn.innerHTML = getLangLabel(current) +
+          ' <span style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:10px;">&#9662;</span>';
+
+        var menu = document.createElement('ul');
+        menu.className = 'lang-dropdown-menu';
+        menu.style.cssText =
+          'display:none;position:absolute;top:calc(100% + 4px);left:0;' +
+          'background:#fff;border:1px solid #ddd;border-radius:4px;' +
+          'box-shadow:0 4px 12px rgba(0,0,0,.12);list-style:none;' +
+          'padding:4px 0;margin:0;min-width:130px;z-index:999;';
+
+        langs.forEach(function(l) {
+          var li = document.createElement('li');
+          li.style.cssText =
+            'padding:7px 14px;cursor:pointer;font-size:14px;' +
+            'white-space:nowrap;color:#333;';
+          if (l.code === current) {
+            li.style.fontWeight = 'bold';
+            li.style.color = '#42b983';
+          }
+          li.textContent = l.flag + ' ' + l.label;
+          li.addEventListener('mouseenter', function() {
+            this.style.background = '#f5f5f5';
+          });
+          li.addEventListener('mouseleave', function() {
+            this.style.background = 'none';
+          });
+          li.addEventListener('click', function(e) {
+            e.stopPropagation();
+            window.location.hash = '#/' + l.code + '/';
+            window.location.reload();
+          });
+          menu.appendChild(li);
+        });
+
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+        });
+
+        document.addEventListener('click', function() {
+          menu.style.display = 'none';
+        });
+
+        wrap.appendChild(btn);
+        wrap.appendChild(menu);
+
+        var ul = navbar.querySelector('ul');
+        if (ul) ul.appendChild(wrap);
+      });
+    };
+
+    window.$docsify.plugins = (window.$docsify.plugins || []).concat(langSwitcherPlugin);
+  })();
+  </script>
   <!-- 搜索 -->
   <script src="//gcore.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <!-- 图片放大缩小支持 -->
@@ -360,4 +487,26 @@
   <script src="//gcore.jsdelivr.net/npm/pdfobject@2.2.8/pdfobject.min.js"></script> 
   <script src="//gcore.jsdelivr.net/npm/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
 </body>
+<style>
+.markdown-section table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: auto;
+}
+
+.markdown-section th {
+    border-bottom: 2px solid #ddd;
+}
+
+.markdown-section td {
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.markdown-section th,
+.markdown-section td {
+    border-left: none;
+    border-right: none;
+}
+
+</style>
 </html>
