@@ -1,1 +1,0 @@
-- [pulse](/en/pulse/overview.md)

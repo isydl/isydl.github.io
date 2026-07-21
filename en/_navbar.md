@@ -1,2 +1,0 @@
-- [Home](/en/)
-- [About Me](/en/ABOUTME.md)

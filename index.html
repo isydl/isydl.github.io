@@ -22,28 +22,17 @@
 <body>
   <div id="app"></div>
   <script>
-    // i18n: detect language from URL hash
-    var isEn = /\/en\//.test(window.location.hash);
-    var isJa = /\/ja\//.test(window.location.hash);
-    var siteName = isJa ? '積歩成遠' : (isEn ? 'A Thousand Miles Hence' : '何以千里');
-    document.title = siteName;
-
     window.$docsify = {
-      name: siteName + '<span class="mg-badge">^_^</span>',
+      name: '何以千里<span class="mg-badge">0.0.0</span>',
       repo: 'https://github.com/isydl/isydl.github.io',
       coverpage: false,
       loadNavbar: true,
       loadSidebar: true,
       autoHeader: true,
       onlyCover: false,
-      fallbackLanguages: ['zh-cn'],
-      alias: {
-        '/README.md': '/zh-cn/README.md',
-        '/ABOUTME.md': '/zh-cn/ABOUTME.md'
-      },
       routerMode: 'hash',
-      subMaxLevel: 1,
-      //basePath: '',
+      subMaxLevel: 0,
+      //basePath: 'http://mg.meiflower.top/',
       sidebarDisplayLevel: 0, // set sidebar display level
       count:{
         countable:true,
@@ -53,9 +42,9 @@
       },
       search: 'auto',
       copyCode: {
-        buttonText : isJa ? 'コピー' : (isEn ? 'Copy' : '点击复制'),
-        errorText  : isJa ? 'エラー' : (isEn ? 'Error' : '错误'),
-        successText: isJa ? 'コピーしました' : (isEn ? 'Copied' : '复制成功')
+        buttonText : '点击复制',
+        errorText  : '错误',
+        successText: '复制成功'
       },
       footer: {
         copy: '<span>A Thousand Miles Hence &copy; 2026</span>',
@@ -66,7 +55,7 @@
       },
       vueComponents: {},// 可自定义
       timeUpdater: {
-        text: "<div align='right' width='100%' style='color:gray;font-size:16px;margin-top:10px;'>" + (isJa ? '最終更新' : (isEn ? 'Last updated' : '最后更新时间')) + ": {docsify-updated}</div>",
+        text: "<div align='right' width='100%' style='color:gray;font-size:16px;margin-top:10px;'>最后更新时间: {docsify-updated}</div>",
         formatUpdated: "{YYYY}-{MM}-{DD} {HH}:{mm}",
       },
       // note tip warning attention https://github.com/fzankl/docsify-plugin-flexible-alerts
@@ -99,7 +88,7 @@
         ignoreHeaders:  ['<!-- {docsify-ignore} -->', '<!-- {docsify-ignore-all} -->']
       },
       // 百度统计ID
-      // baiduTjId: "158900a5f76be62412d389c3ca8eadca",
+      // baiduTjId: "6b106096cc897dbbba878967ab356b7d",
       // 开启busuanzi
       busuanzi: false,
       // 开启远程md
@@ -108,66 +97,14 @@
       },
       // docsify ads 配置广告
       // ads: [
-      // {
-      //     img: 'https://dn-lego-static.qbox.me/cps/1638355965-480x300.jpg',
-      //     href: 'https://s.qiniu.com/zqiMBz'
-      //   },
-      //   {
-      //     img: 'https://dn-lego-static.qbox.me/cps/1638355965-480x300.jpg',
-      //     href: 'https://s.qiniu.com/VJFJvi'
-      //   },
-      //   {
-      //     img: 'https://dn-lego-static.qbox.me/cps/1638355799-480300.jpg',
-      //     href: 'https://s.qiniu.com/7nM3uy'
-      //   },
-      //   {
-      //     img: 'https://dn-lego-static.qbox.me/cps/1638268412-480x300.jpg',
-      //     href: 'https://s.qiniu.com/VZvaii'
-      //   },
-      //   {
-      //     img: 'https://dn-lego-static.qbox.me/cps/1638268217-480x300.jpg',
-      //     href: 'https://s.qiniu.com/nMnaQj'
-      //   },
-      //   {
-      //     img: 'https://dn-lego-static.qbox.me/cps/1638267917-480x300.jpg',
-      //     href: 'https://s.qiniu.com/aqAneu'
-      //   },
-      //   // 腾讯云 
-      //   {
-      //     img: 'https://upload-dianshi-1255598498.file.myqcloud.com/upload/nodir/345X200-9ae456f58874df499adf7c331c02cb0fed12b81d.jpg',
-      //     href: 'https://url.cn/00DqsRrc'
-      //   },
-      //   {
-      //     img: 'https://dscache.tencent-cloud.cn/upload//345-200-78bcc66c42d6998810cebb6eb4158bcce824f9b1.jpg',
-      //     href: 'https://url.cn/DjhfFECm'
-      //   },
-      //   {
-      //     img: 'https://upload-dianshi-1255598498.file.myqcloud.com/345_200-665434f41e982c3b542694850e5ea1cd9ae0b49b.png',
-      //     href: 'https://url.cn/ufa6Vl2B'
-      //   },
-      //   {
-      //     img: 'https://upload-dianshi-1255598498.file.myqcloud.com/345x200--2953d058277cb63c6b1cd127285163335cd6751e.jpg',
-      //     href: 'https://url.cn/JBdlnq0N'
-      //   },
-      //   {
-      //     img: 'https://upload-dianshi-1255598498.file.myqcloud.com/%E8%85%BE%E8%AE%AF%E4%BA%913_345%20200_1-7aeb8eb451fd6de33676444898914b1ff3298996.jpg',
-      //     href: 'https://url.cn/m0TwE0AC'
-      //   },
-      //   {
-      //     img: 'https://upload-dianshi-1255598498.file.myqcloud.com/345x200-89eeba55a2f49008e686e1a51e14bfe79f63af13.png',
-      //     href: 'https://url.cn/mpZn2VBe'
-      //   },
-      //   {
-      //     img: 'https://upload-dianshi-1255598498.file.myqcloud.com/345-200-b28f7dee9552f4241ea6a543f15a9798049701d4.jpg',
-      //     href: 'https://url.cn/KM23RG9M'
-      //   },
+      
       // ],
       // giscus评论
       // giscus:{
-      //   repo: "isydl/isydl.github.io",
-      //   repoId: "R_kgDOKGpGvg",
+      //   repo: "mg0324/docsify-comments",
+      //   repoId: "R_kgDOI68LwA",
       //   category: "Announcements",
-      //   categoryId: "DIC_kwDOKGpGvs4C0dho",
+      //   categoryId: "DIC_kwDOI68LwM4CUDhM",
       //   mapping: "url",
       //   reactionsEnabled: "0",
       //   strict: "1",
@@ -181,17 +118,6 @@
       //   appId: "UN7Gtt9fVUR42BGx89Fk2ZoS-gzGzoHsz",
       //   appKey: "cxbfRBGvSS9wPBD4pGav3njE"
       // },
-      // root redirect: auto-navigate to Chinese homepage when no language is selected
-      plugins: [
-        function(hook) {
-          hook.init(function() {
-            var hash = window.location.hash;
-            if (hash === '' || hash === '#/' || hash === '#/README.md') {
-              window.location.hash = '#/zh-cn/';
-            }
-          });
-        }
-      ],
       markdown: {
         renderer: {
           code: function (code, lang) {
@@ -239,30 +165,13 @@
           }
         }
       },
-      // contributors: {
-      //   repo: 'mg0324/docsify-template',
-      //   ignores: [],
-      //   style: {
-      //       color: '#ffffff',
-      //       bgColor: '#404040'
-      //   },
-      //   image: {
-      //       size: 30,
-      //       isRound: true,
-      //       margin: '0.5em'
-      //   },
-      //   load: {
-      //       isOpen: true,
-      //       color: "#009999"
-      //   }
-      // }
-      // gitalk评论
+      //gitalk评论
       // gitalk: {
-      //   clientID: 'Ov23liyRKAcMqsIi2FWe',
-      //   clientSecret: '094f2f4edca35ae9e9a0ff6d7a5929582a376b16',
-      //   repo: 'isydl.github.io',
-      //   owner: 'isydl',
-      //   admin: ['isydl']
+      //   clientID: 'a80e57a9ad7a92dd2c8d',
+      //   clientSecret: 'c38424e2af55c1549f52de1564eb71b4a94c10ea',
+      //   repo: 'docsify-note-02',
+      //   owner: 'mg0324',
+      //   admin: ['mg0324']
       // },
       // plugins: [
       //   function(hook, vm) {
@@ -317,111 +226,6 @@
   <script src="//gcore.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
   <!-- Docsify v4 -->
   <script src="//gcore.jsdelivr.net/npm/docsify@4.13.0/lib/docsify.js"></script>
-  <!-- i18n language switcher (custom dropdown) -->
-  <script>
-  (function() {
-    var langs = [
-      { code: 'zh-cn', label: '\u4E2D\u6587',  flag: '\u{1F1E8}\u{1F1F3}' },
-      { code: 'en',    label: 'English',       flag: '\u{1F1FA}\u{1F1F8}' },
-      { code: 'ja',    label: '\u65E5\u672C\u8A9E', flag: '\u{1F1EF}\u{1F1F5}' }
-    ];
-
-    function getCurrentLang() {
-      var hash = location.hash;
-      for (var i = 0; i < langs.length; i++) {
-        if (hash.indexOf('/' + langs[i].code + '/') !== -1) return langs[i].code;
-      }
-      return 'zh-cn';
-    }
-
-    function getLangLabel(code) {
-      for (var i = 0; i < langs.length; i++) {
-        if (langs[i].code === code) return langs[i].flag + ' ' + langs[i].label;
-      }
-      return code;
-    }
-
-    var langSwitcherPlugin = function(hook) {
-      hook.doneEach(function() {
-        var navbar = document.querySelector('nav.app-nav');
-        if (!navbar) return;
-        if (navbar.querySelector('.lang-dropdown-wrap')) return;
-
-        // Remove all language-flag <li> items (:cn: / :us: / :jp:)
-        var items = navbar.querySelectorAll('ul > li');
-        items.forEach(function(li) {
-          var t = li.textContent;
-          if (/:cn:|:us:|:jp:/.test(t)) li.remove();
-        });
-
-        // Build custom dropdown
-        var current = getCurrentLang();
-        var wrap = document.createElement('li');
-        wrap.className = 'lang-dropdown-wrap';
-        wrap.style.cssText = 'position:relative;display:inline-block;';
-
-        var btn = document.createElement('button');
-        btn.className = 'lang-dropdown-btn';
-        btn.style.cssText =
-          'background:#fff;border:1px solid #ddd;border-radius:4px;' +
-          'padding:5px 24px 5px 10px;cursor:pointer;font-size:14px;' +
-          'color:#333;outline:none;white-space:nowrap;' +
-          'appearance:none;-webkit-appearance:none;';
-        btn.innerHTML = getLangLabel(current) +
-          ' <span style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:10px;">&#9662;</span>';
-
-        var menu = document.createElement('ul');
-        menu.className = 'lang-dropdown-menu';
-        menu.style.cssText =
-          'display:none;position:absolute;top:calc(100% + 4px);left:0;' +
-          'background:#fff;border:1px solid #ddd;border-radius:4px;' +
-          'box-shadow:0 4px 12px rgba(0,0,0,.12);list-style:none;' +
-          'padding:4px 0;margin:0;min-width:130px;z-index:999;';
-
-        langs.forEach(function(l) {
-          var li = document.createElement('li');
-          li.style.cssText =
-            'padding:7px 14px;cursor:pointer;font-size:14px;' +
-            'white-space:nowrap;color:#333;';
-          if (l.code === current) {
-            li.style.fontWeight = 'bold';
-            li.style.color = '#42b983';
-          }
-          li.textContent = l.flag + ' ' + l.label;
-          li.addEventListener('mouseenter', function() {
-            this.style.background = '#f5f5f5';
-          });
-          li.addEventListener('mouseleave', function() {
-            this.style.background = 'none';
-          });
-          li.addEventListener('click', function(e) {
-            e.stopPropagation();
-            window.location.hash = '#/' + l.code + '/';
-            window.location.reload();
-          });
-          menu.appendChild(li);
-        });
-
-        btn.addEventListener('click', function(e) {
-          e.stopPropagation();
-          menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
-        });
-
-        document.addEventListener('click', function() {
-          menu.style.display = 'none';
-        });
-
-        wrap.appendChild(btn);
-        wrap.appendChild(menu);
-
-        var ul = navbar.querySelector('ul');
-        if (ul) ul.appendChild(wrap);
-      });
-    };
-
-    window.$docsify.plugins = (window.$docsify.plugins || []).concat(langSwitcherPlugin);
-  })();
-  </script>
   <!-- 搜索 -->
   <script src="//gcore.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <!-- 图片放大缩小支持 -->
@@ -458,7 +262,7 @@
   <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/light.css">
   <script src="https://gcore.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/docsify-plugin-toc.min.js"></script>
   <!-- 百度统计 -->
-  <!-- <script src="https://gcore.jsdelivr.net/npm/docsify-baidu-tj@1.0.2/dist/docsify-baidu-tj.min.js"></script> -->
+  <script src="https://gcore.jsdelivr.net/npm/docsify-baidu-tj@1.0.2/dist/docsify-baidu-tj.min.js"></script>
   <!-- giscus评论  -->
   <!-- <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/docsify-giscus@1.0.2/dist/giscus.css">
   <script src="https://gcore.jsdelivr.net/npm/docsify-giscus@1.0.2/dist/docsify-giscus.min.js"></script> -->
@@ -481,32 +285,9 @@
   <script src="//gcore.jsdelivr.net/npm/docsify-kroki"></script>
   <!-- docsify ads -->
   <script src="//gcore.jsdelivr.net/npm/docsify-ads@1.0.2/dist/docsify-ads.min.js"></script>
-  <!-- docsify-contributors -->
-  <script src="//gcore.jsdelivr.net/npm/docsify-contributors@latest/dist/index.min.js"></script>
+  
   <!-- docsify pdf embed -->
   <script src="//gcore.jsdelivr.net/npm/pdfobject@2.2.8/pdfobject.min.js"></script> 
   <script src="//gcore.jsdelivr.net/npm/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
 </body>
-<style>
-.markdown-section table {
-    border-collapse: collapse;
-    width: 100%;
-    table-layout: auto;
-}
-
-.markdown-section th {
-    border-bottom: 2px solid #ddd;
-}
-
-.markdown-section td {
-    border-bottom: 1px solid #f1f1f1;
-}
-
-.markdown-section th,
-.markdown-section td {
-    border-left: none;
-    border-right: none;
-}
-
-</style>
 </html>
