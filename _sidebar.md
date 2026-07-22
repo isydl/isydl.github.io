@@ -1,3 +1,3 @@
-- [文章](/articles/overview.md)
-  - [The Boundary Between Coupling and Cohesion: Why Low Coupling Alone Doesn’t Make a Good Architecture](/articles/aaa.md)
+- [HR Questions](/articles/HR%20Questions/overview.md)
+  - [1. How do you deal with criticism?](/articles/HR%20Questions/How%20do%20you%20deal%20with%20criticism.md)
 - [随笔](/essays/overview.md)
