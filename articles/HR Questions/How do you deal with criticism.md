@@ -6,6 +6,14 @@ ok，先从这个题目开始说起吧，
 
 対応する 按照我的目前的理解， 就是 应对
 
+看一下英语版本是如何解析这个问题的
+
+> The main intension to ask this question is to see what your attitude towards feedback is and how you react to it.
+
+句子有点长，记不住，尝试用简单的词改写一下，如果是我的话，这句话大概会这么说:
+
+what your purpose of this is ?
+
 ---
 
 参考：
