@@ -26,5 +26,3 @@ HTML + CSS + JavaScript（原生） + localStorage
 1. 下载或克隆本仓库
 2. 浏览器打开 `index.html`
 3. 开始使用
-
-## 项目结构
