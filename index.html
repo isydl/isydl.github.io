@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <meta name="renderer" content="webkit">
   <link rel="stylesheet" href="//gcore.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="//gcore.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css">
   <link rel="stylesheet" href="static/css/ext.css">
   <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
   <!--[if lt IE 9]>
@@ -34,6 +35,10 @@
       subMaxLevel: 0,
       //basePath: 'http://mg.meiflower.top/',
       sidebarDisplayLevel: 0, // set sidebar display level
+      darklightTheme: {
+        defaultTheme: 'light', // 可选 'light' 或 'dark'
+        // 可自定义字体、大小和具体颜色
+      },
       count:{
         countable:true,
         fontsize:'0.9em',
@@ -289,5 +294,7 @@
   <!-- docsify pdf embed -->
   <script src="//gcore.jsdelivr.net/npm/pdfobject@2.2.8/pdfobject.min.js"></script> 
   <script src="//gcore.jsdelivr.net/npm/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"></script>
 </body>
 </html>
