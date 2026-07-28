@@ -3,8 +3,7 @@
 
 - [Documentation](#)
   - [Todo](/articles/documentation/Todo/index.md)
-  - [Blog](/articles/documentation/Blog/index.md)
-  - [Library](/articles/documentation/Library/index.md)
+  - [Pulse](/articles/documentation/Pulse/overview.md)
 
 - [随笔](/essays/overview.md)
   - [英语表达句式库](/essays/English%20Expression%20System.md)
