@@ -11,3 +11,4 @@
   - [日本語表現文構造](/essays/表現文構造.md)
   - [フレーズ／連語](/essays/フレーズ連語.md)
   - [核心动词260](/essays/core%20verb%20collocations.md)
+  - [concept model](/essays/concept%20model.md)
