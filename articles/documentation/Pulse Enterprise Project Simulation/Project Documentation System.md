@@ -1,4 +1,4 @@
-> Pulse 会有的哪些文档
+> Pulse 会有的哪些文档 [25parts](/articles/documentation/Pulse/25parts.md)
 
 ---
 
