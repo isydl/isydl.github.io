@@ -53,3 +53,32 @@ Therefore, the company initiated:
 This document serves as the official foundation and authorization document of the project.
 
 > [Project Charter](/articles/documentation/Pulse%20Enterprise%20Project%20Simulation/project-charter.md)
+
+---
+
+#### Notes and Consideration
+
+> This document follows the following terminology analysis framework: Term -> Meaning -> Usage -> Notes
+
+---
+
+> what's "Inc" means?
+
+Inc is an obbreviation for incorporated.  
+Companies are generally classified as: Inc. Corp. ltd. The Inc and Corp are similar, the only difference is the suffix chosen when registeration.
+
+> Terms similar to "enterprise-grade"
+
+- production-grade
+- customer-grade
+- Commercial-grade
+- Industrial-grade
+- Financial-grade
+
+> Concept similar to "business **area**"
+
+- business area: what does the company mainly do? like SaaS solutions, payment service.
+- business scope: what the company's license allows it can do.
+- business domain: The collective term for related modules within it architecture.
+- business line: Division of business within the company
+- business range: The physical scope, for example, the business scope is from Europe to Asia.
