@@ -82,3 +82,7 @@ Companies are generally classified as: Inc. Corp. ltd. The Inc and Corp are simi
 - business domain: The collective term for related modules within it architecture.
 - business line: Division of business within the company
 - business range: The physical scope, for example, the business scope is from Europe to Asia.
+
+---
+
+哎呀，太菜了我，又要降级了。由于目前能力有限，暂时搁置documentation模块，等后续提升后再做更新。 -2026年8月12日
